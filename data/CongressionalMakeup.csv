@@ -1,0 +1,118 @@
+Congress,Year,President,PresidentParty,PresPartyAbbrev,SenateMajorityParty,SenateMajorityPartySeats,SenateMinorityParty,SenateMinorityPartySeats,SenateOther,SenateVacant,FlippedSenate,HouseMajorityParty,HouseMajorityPartySeats,HouseMinorityParty,HouseMinorityPartySeats,HouseOther,HouseVacant,FlippedHouse,Trifecta,ElectionType
+1,1789,George Washington,Independent,I,Pro-Administration,18,Anti-Administration,8,0,0,FALSE,Pro-Administration,36,Anti-Administration,28,0,0,FALSE,FALSE,Presidential
+2,1791,George Washington,Independent,I,Pro-Administration,17,Anti-Administration,13,0,0,FALSE,Pro-Administration,39,Anti-Administration,29,0,1,FALSE,FALSE,Midterm
+3,1793,George Washington,Independent,I,Pro-Administration,17,Anti-Administration,13,0,0,FALSE,Anti-Administration,53,Pro-Administration,50,0,2,TRUE,FALSE,Presidential
+4,1795,George Washington,Independent,I,Federalist,21,Democratic-Republican,11,0,0,TRUE,Democratic-Republican,59,Federalist,47,0,0,TRUE,FALSE,Midterm
+5,1797,John Adams,Federalist,F,Federalist,22,Democratic-Republican,9,0,0,FALSE,Democratic-Republican,57,Federalist,49,0,0,FALSE,FALSE,Presidential
+6,1799,John Adams,Federalist,F,Federalist,21,Democratic-Republican,11,0,0,FALSE,Federalist,56,Democratic-Republican,49,0,0,TRUE,TRUE,Midterm
+7,1801,Thomas Jefferson,Democratic-Republican,DR,Democratic-Republican,17,Federalist,14,0,1,TRUE,Democratic-Republican,67,Federalist,38,0,2,TRUE,TRUE,Presidential
+8,1803,Thomas Jefferson,Democratic-Republican,DR,Democratic-Republican,25,Federalist,9,0,0,FALSE,Democratic-Republican,101,Federalist,39,0,2,FALSE,TRUE,Midterm
+9,1805,Thomas Jefferson,Democratic-Republican,DR,Democratic-Republican,26,Federalist,7,0,1,FALSE,Democratic-Republican,112,Federalist,28,0,2,FALSE,TRUE,Presidential
+10,1807,Thomas Jefferson,Democratic-Republican,DR,Democratic-Republican,28,Federalist,6,0,0,FALSE,Democratic-Republican,115,Federalist,27,0,0,FALSE,TRUE,Midterm
+11,1809,James Madison,Democratic-Republican,DR,Democratic-Republican,26,Federalist,8,0,0,FALSE,Democratic-Republican,93,Federalist,48,0,1,FALSE,TRUE,Presidential
+12,1811,James Madison,Democratic-Republican,DR,Democratic-Republican,29,Federalist,7,0,0,FALSE,Democratic-Republican,106,Federalist,36,0,1,FALSE,TRUE,Midterm
+13,1813,James Madison,Democratic-Republican,DR,Democratic-Republican,25,Federalist,10,0,1,FALSE,Democratic-Republican,115,Federalist,67,0,0,FALSE,TRUE,Presidential
+14,1815,James Madison,Democratic-Republican,DR,Democratic-Republican,25,Federalist,13,0,0,FALSE,Democratic-Republican,119,Federalist,63,0,1,FALSE,TRUE,Midterm
+15,1817,James Monroe,Democratic-Republican,DR,Democratic-Republican,28,Federalist,12,0,2,FALSE,Democratic-Republican,144,Federalist,40,0,1,FALSE,TRUE,Presidential
+16,1819,James Monroe,Democratic-Republican,DR,Democratic-Republican,38,Federalist,8,0,0,FALSE,Democratic-Republican,155,Federalist,27,0,5,FALSE,TRUE,Midterm
+17,1821,James Monroe,Democratic-Republican,DR,Democratic-Republican,43,Federalist,4,0,1,FALSE,Democratic-Republican,154,Federalist,31,0,2,FALSE,TRUE,Presidential
+18,1823,James Monroe,Democratic-Republican,DR,Democratic-Republican,43,Federalist,5,0,0,FALSE,Democratic-Republican,189,Federalist,24,0,0,FALSE,TRUE,Midterm
+19,1825,John Q. Adams,Democratic-Republican,DR,Jacksonian,26,Anti-Jacksonian,22,0,0,TRUE,Anti-Jacksonian,109,Jacksonian,104,0,0,TRUE,FALSE,Presidential
+20,1827,John Q. Adams,Democratic-Republican,DR,Jacksonian,26,National Republican,21,0,1,FALSE,Jacksonian,113,National Republican,99,0,1,TRUE,FALSE,Midterm
+21,1829,Andrew Jackson,Democratic,D,Jacksonian,25,National Republican,22,0,1,FALSE,Jacksonian,135,National Republican,72,5,1,FALSE,FALSE,Presidential
+22,1831,Andrew Jackson,Democratic,D,Jacksonian,24,National Republican,22,1,1,FALSE,Jacksonian,128,National Republican,63,21,1,FALSE,FALSE,Midterm
+23,1833,Andrew Jackson,Democratic,D,National Republican,26,Jacksonian,20,2,0,TRUE,Jacksonian,143,National Republican,62,33,2,FALSE,FALSE,Presidential
+24,1835,Andrew Jackson,Democratic,D,Jacksonian,31,National Republican,19,2,0,TRUE,Jacksonian,139,National Republican,79,23,1,FALSE,FALSE,Midterm
+25,1837,Martin Van Buren,Democratic,D,Democratic,35,Whig,16,0,1,TRUE,Democratic,123,Whig,106,11,2,TRUE,TRUE,Presidential
+26,1839,Martin Van Buren,Democratic,D,Democratic,29,Whig,23,0,0,FALSE,Democratic,123,Whig,111,7,1,FALSE,TRUE,Midterm
+27,1841,John Tyler,Whig,W,Whig,29,Democratic,20,0,3,TRUE,Whig,139,Democratic,101,1,1,TRUE,TRUE,Presidential
+28,1843,John Tyler,Whig,W,Whig,27,Democratic,23,1,3,FALSE,Democratic,141,Whig,78,4,1,TRUE,FALSE,Midterm
+29,1845,James K. Polk,Democratic,D,Democratic,31,Whig,24,1,2,TRUE,Democratic,142,Whig,78,6,2,FALSE,TRUE,Presidential
+30,1847,James K. Polk,Democratic,D,Democratic,38,Whig,21,1,0,FALSE,Whig,116,Democratic,110,4,0,TRUE,FALSE,Midterm
+31,1849,Zachary Taylor,Whig,W,Democratic,36,Whig,24,2,0,FALSE,Democratic,114,Whig,105,11,3,TRUE,FALSE,Presidential
+32,1851,Millard Fillmore,Whig,W,Democratic,35,Whig,23,3,1,FALSE,Democratic,125,Whig,86,21,1,FALSE,FALSE,Midterm
+33,1853,Franklin Pierce,Democratic,D,Democratic,37,Whig,17,6,2,FALSE,Democratic,155,Whig,74,5,0,FALSE,TRUE,Presidential
+34,1855,Franklin Pierce,Democratic,D,Democratic,40,Opposition,20,2,0,FALSE,Opposition,148,Democratic,82,0,4,TRUE,FALSE,Midterm
+35,1857,James Buchanan,Democratic,D,Democratic,42,Republican,20,4,0,FALSE,Democratic,130,Republican,92,15,0,TRUE,TRUE,Presidential
+36,1859,James Buchanan,Democratic,D,Republican,26,Democratic,25,2,15,TRUE,Republican,115,Democratic,59,36,28,TRUE,FALSE,Midterm
+37,1861,Abraham Lincoln,Republican,R,Republican,30,Democratic,11,7,20,FALSE,Republican,105,Democratic,44,32,57,FALSE,TRUE,Presidential
+38,1863,Abraham Lincoln,National Union,NU,Republican,33,Democratic,10,7,22,FALSE,Republican,84,Democratic,42,27,59,FALSE,FALSE,Midterm
+39,1865,Andrew Johnson,National Union,NU,Republican,41,Democratic,8,5,20,FALSE,Republican,135,Democratic,39,18,51,FALSE,FALSE,Presidential
+40,1867,Andrew Johnson,National Union,NU,Republican,57,Democratic,9,0,8,FALSE,Republican,172,Democratic,46,5,20,FALSE,FALSE,Midterm
+41,1869,Ulysses S. Grant,Republican,R,Republican,62,Democratic,12,0,0,FALSE,Republican,167,Democratic,67,5,4,FALSE,TRUE,Presidential
+42,1871,Ulysses S. Grant,Republican,R,Republican,54,Democratic,17,1,2,FALSE,Republican,131,Democratic,106,4,2,FALSE,TRUE,Midterm
+43,1873,Ulysses S. Grant,Republican,R,Republican,51,Democratic,20,2,1,FALSE,Republican,193,Democratic,91,6,2,FALSE,TRUE,Presidential
+44,1875,Ulysses S. Grant,Republican,R,Republican,45,Democratic,30,1,0,FALSE,Democratic,180,Republican,103,7,3,TRUE,FALSE,Midterm
+45,1877,Rutherford B. Hayes,Republican,R,Republican,38,Democratic,36,2,0,FALSE,Democratic,153,Republican,136,2,2,FALSE,FALSE,Presidential
+46,1879,Rutherford B. Hayes,Republican,R,Democratic,42,Republican,31,2,1,TRUE,Democratic,143,Republican,129,19,2,FALSE,FALSE,Midterm
+47,1881,James A. Garfield,Republican,R,Republican,37,Democratic,37,2,0,TRUE,Republican,150,Democratic,130,12,1,TRUE,TRUE,Presidential
+48,1883,Chester A. Arthur,Republican,R,Republican,38,Democratic,36,2,0,FALSE,Democratic,197,Republican,113,13,2,TRUE,FALSE,Midterm
+49,1885,Grover Cleveland,Democratic,D,Republican,40,Democratic,34,2,0,FALSE,Democratic,180,Republican,138,2,5,FALSE,FALSE,Presidential
+50,1887,Grover Cleveland,Democratic,D,Republican,38,Democratic,37,1,0,FALSE,Democratic,167,Republican,151,6,1,FALSE,FALSE,Midterm
+51,1889,Benjamin Harrison,Republican,R,Republican,51,Democratic,35,0,2,FALSE,Republican,176,Democratic,153,1,2,TRUE,TRUE,Presidential
+52,1891,Benjamin Harrison,Republican,R,Republican,47,Democratic,39,2,0,FALSE,Democratic,233,Republican,86,9,4,TRUE,FALSE,Midterm
+53,1893,Grover Cleveland,Democratic,D,Democratic,43,Republican,41,4,0,TRUE,Democratic,214,Republican,123,13,6,FALSE,TRUE,Presidential
+54,1895,Grover Cleveland,Democratic,D,Republican,44,Democratic,40,6,0,TRUE,Republican,252,Democratic,94,10,1,TRUE,FALSE,Midterm
+55,1897,William McKinley,Republican,R,Republican,44,Democratic,34,12,0,FALSE,Republican,201,Democratic,122,27,7,FALSE,TRUE,Presidential
+56,1899,William McKinley,Republican,R,Republican,53,Democratic,25,10,2,FALSE,Republican,186,Democratic,158,9,4,FALSE,TRUE,Midterm
+57,1901,Theodore Roosevelt,Republican,R,Republican,57,Democratic,29,2,0,FALSE,Republican,197,Democratic,147,7,6,FALSE,TRUE,Presidential
+58,1903,Theodore Roosevelt,Republican,R,Republican,56,Democratic,33,0,1,FALSE,Republican,209,Democratic,175,0,2,FALSE,TRUE,Midterm
+59,1905,Theodore Roosevelt,Republican,R,Republican,58,Democratic,32,0,0,FALSE,Republican,246,Democratic,133,0,7,FALSE,TRUE,Presidential
+60,1907,Theodore Roosevelt,Republican,R,Republican,61,Democratic,31,0,0,FALSE,Republican,220,Democratic,164,1,6,FALSE,TRUE,Midterm
+61,1909,William H. Taft,Republican,R,Republican,59,Democratic,32,0,1,FALSE,Republican,210,Democratic,173,1,7,FALSE,TRUE,Presidential
+62,1911,William H. Taft,Republican,R,Republican,50,Democratic,45,0,1,FALSE,Democratic,225,Republican,156,1,12,TRUE,FALSE,Midterm
+63,1913,Woodrow Wilson,Democratic,D,Democratic,53,Republican,42,1,0,TRUE,Democratic,282,Republican,130,12,11,FALSE,TRUE,Presidential
+64,1915,Woodrow Wilson,Democratic,D,Democratic,55,Republican,41,0,0,FALSE,Democratic,227,Republican,200,7,1,FALSE,TRUE,Midterm
+65,1917,Woodrow Wilson,Democratic,D,Democratic,51,Republican,45,0,0,FALSE,Democratic,211,Republican,212,5,7,FALSE,TRUE,Presidential
+66,1919,Woodrow Wilson,Democratic,D,Republican,50,Democratic,46,0,0,TRUE,Republican,239,Democratic,187,2,7,TRUE,FALSE,Midterm
+67,1921,Warren G. Harding,Republican,R,Republican,59,Democratic,37,0,0,FALSE,Republican,295,Democratic,130,2,8,FALSE,TRUE,Presidential
+68,1923,Calvin Coolidge,Republican,R,Republican,52,Democratic,42,2,0,FALSE,Republican,222,Democratic,208,3,2,FALSE,TRUE,Midterm
+69,1925,Calvin Coolidge,Republican,R,Republican,52,Democratic,42,1,1,FALSE,Republican,247,Democratic,182,4,2,FALSE,TRUE,Presidential
+70,1927,Calvin Coolidge,Republican,R,Republican,49,Democratic,45,1,1,FALSE,Republican,232,Democratic,193,3,7,FALSE,TRUE,Midterm
+71,1929,Herbert Hoover,Republican,R,Republican,53,Democratic,42,1,0,FALSE,Republican,265,Democratic,166,1,3,FALSE,TRUE,Presidential
+72,1931,Herbert Hoover,Republican,R,Republican,48,Democratic,46,1,1,FALSE,Democratic,220,Republican,206,1,8,TRUE,FALSE,Midterm
+73,1933,Franklin D. Roosevelt,Democratic,D,Democratic,60,Republican,35,1,0,TRUE,Democratic,309,Republican,113,5,8,FALSE,TRUE,Presidential
+74,1935,Franklin D. Roosevelt,Democratic,D,Democratic,72,Republican,22,2,0,FALSE,Democratic,308,Republican,100,10,17,FALSE,TRUE,Midterm
+75,1937,Franklin D. Roosevelt,Democratic,D,Democratic,74,Republican,18,4,0,FALSE,Democratic,324,Republican,89,13,9,FALSE,TRUE,Presidential
+76,1939,Franklin D. Roosevelt,Democratic,D,Democratic,68,Republican,25,3,0,FALSE,Democratic,256,Republican,167,5,7,FALSE,TRUE,Midterm
+77,1941,Franklin D. Roosevelt,Democratic,D,Democratic,64,Republican,30,2,0,FALSE,Democratic,254,Republican,164,5,11,FALSE,TRUE,Presidential
+78,1943,Franklin D. Roosevelt,Democratic,D,Democratic,56,Republican,39,1,0,FALSE,Democratic,212,Republican,211,3,9,FALSE,TRUE,Midterm
+79,1945,Harry S. Truman,Democratic,D,Democratic,53,Republican,42,1,0,FALSE,Democratic,236,Republican,191,2,6,FALSE,TRUE,Presidential
+80,1947,Harry S. Truman,Democratic,D,Republican,51,Democratic,45,0,0,TRUE,Republican,242,Democratic,186,2,5,TRUE,FALSE,Midterm
+81,1949,Harry S. Truman,Democratic,D,Democratic,53,Republican,43,0,0,TRUE,Democratic,259,Republican,168,2,6,TRUE,TRUE,Presidential
+82,1951,Harry S. Truman,Democratic,D,Republican,48,Democratic,47,0,1,TRUE,Democratic,228,Republican,198,1,8,FALSE,FALSE,Midterm
+83,1953,Dwight D. Eisenhower,Republican,R,Republican,48,Democratic,47,1,0,FALSE,Republican,213,Democratic,212,1,9,TRUE,TRUE,Presidential
+84,1955,Dwight D. Eisenhower,Republican,R,Republican,49,Democratic,47,0,0,FALSE,Democratic,228,Republican,200,0,7,TRUE,FALSE,Midterm
+85,1957,Dwight D. Eisenhower,Republican,R,Democratic,50,Republican,45,0,1,TRUE,Democratic,232,Republican,193,0,10,FALSE,FALSE,Presidential
+86,1959,Dwight D. Eisenhower,Republican,R,Democratic,66,Republican,34,0,0,FALSE,Democratic,281,Republican,151,0,5,FALSE,FALSE,Midterm
+87,1961,John F. Kennedy,Democratic,D,Democratic,62,Republican,37,0,1,FALSE,Democratic,260,Republican,174,0,3,FALSE,TRUE,Presidential
+88,1963,Lyndon B. Johnson,Democratic,D,Democratic,66,Republican,34,0,0,FALSE,Democratic,253,Republican,177,0,5,FALSE,TRUE,Midterm
+89,1965,Lyndon B. Johnson,Democratic,D,Democratic,66,Republican,33,0,1,FALSE,Democratic,288,Republican,137,0,10,FALSE,TRUE,Presidential
+90,1967,Lyndon B. Johnson,Democratic,D,Democratic,62,Republican,38,0,0,FALSE,Democratic,247,Republican,186,0,2,FALSE,TRUE,Midterm
+91,1969,Richard Nixon,Republican,R,Democratic,59,Republican,41,0,0,FALSE,Democratic,242,Republican,189,0,4,FALSE,FALSE,Presidential
+92,1971,Richard Nixon,Republican,R,Democratic,54,Republican,44,2,0,FALSE,Democratic,252,Republican,178,0,5,FALSE,FALSE,Midterm
+93,1973,Richard Nixon,Republican,R,Democratic,56,Republican,40,2,2,FALSE,Democratic,232,Republican,174,0,29,FALSE,FALSE,Presidential
+94,1975,Gerald R. Ford,Republican,R,Democratic,60,Republican,38,2,0,FALSE,Democratic,287,Republican,146,0,2,FALSE,FALSE,Midterm
+95,1977,Jimmy Carter,Democratic,D,Democratic,58,Republican,41,1,0,FALSE,Democratic,275,Republican,141,0,19,FALSE,TRUE,Presidential
+96,1979,Jimmy Carter,Democratic,D,Democratic,55,Republican,44,1,0,FALSE,Democratic,272,Republican,158,1,4,FALSE,TRUE,Midterm
+97,1981,Ronald Regan,Republican,R,Republican,53,Democratic,46,1,0,TRUE,Democratic,242,Republican,191,1,1,FALSE,FALSE,Presidential
+98,1983,Ronald Regan,Republican,R,Republican,55,Democratic,45,0,0,FALSE,Democratic,267,Republican,166,1,1,FALSE,FALSE,Midterm
+99,1985,Ronald Regan,Republican,R,Republican,52,Democratic,48,0,0,FALSE,Democratic,252,Republican,181,0,1,FALSE,FALSE,Presidential
+100,1987,Ronald Regan,Republican,R,Democratic,54,Republican,46,0,0,TRUE,Democratic,258,Republican,177,0,0,FALSE,FALSE,Midterm
+101,1989,George H. W. Bush,Republican,R,Democratic,55,Republican,45,0,0,FALSE,Democratic,259,Republican,174,0,2,FALSE,FALSE,Presidential
+102,1991,George H. W. Bush,Republican,R,Democratic,58,Republican,42,0,0,FALSE,Democratic,267,Republican,167,1,0,FALSE,FALSE,Midterm
+103,1993,William Clinton,Democratic,D,Democratic,53,Republican,47,0,0,FALSE,Democratic,258,Republican,176,1,0,FALSE,TRUE,Presidential
+104,1995,William Clinton,Democratic,D,Republican,53,Democratic,47,0,0,TRUE,Republican,230,Democratic,204,1,0,TRUE,FALSE,Midterm
+105,1997,William Clinton,Democratic,D,Republican,55,Democratic,45,0,0,FALSE,Republican,228,Democratic,206,1,0,FALSE,FALSE,Presidential
+106,1999,William Clinton,Democratic,D,Republican,54,Democratic,46,0,0,FALSE,Republican,221,Democratic,210,2,0,FALSE,FALSE,Midterm
+107,2001,George Bush,Republican,R,Republican,50,Democratic,48,2,0,FALSE,Republican,222,Democratic,211,2,0,FALSE,TRUE,Presidential
+108,2003,George Bush,Republican,R,Republican,51,Democratic,48,1,0,FALSE,Republican,229,Democratic,206,1,0,FALSE,TRUE,Midterm
+109,2005,George Bush,Republican,R,Republican,55,Democratic,44,1,0,FALSE,Republican,231,Democratic,202,1,0,FALSE,TRUE,Presidential
+110,2007,George Bush,Republican,R,Democratic,49,Republican,49,2,0,TRUE,Democratic,236,Republican,199,0,0,TRUE,FALSE,Midterm
+111,2009,Barack Obama,Democratic,D,Democratic,56,Republican,42,2,0,FALSE,Democratic,255,Republican,180,0,0,FALSE,TRUE,Presidential
+112,2011,Barack Obama,Democratic,D,Democratic,51,Republican,47,2,0,FALSE,Republican,242,Democratic,193,0,0,TRUE,FALSE,Midterm
+113,2013,Barack Obama,Democratic,D,Democratic,53,Republican,45,2,0,FALSE,Republican,234,Democratic,201,0,0,FALSE,FALSE,Presidential
+114,2015,Barack Obama,Democratic,D,Republican,54,Democratic,44,2,0,TRUE,Republican,247,Democratic,188,0,0,FALSE,FALSE,Midterm
+115,2017,Donald Trump,Republican,R,Republican,51,Democratic,47,2,0,FALSE,Republican,241,Democratic,194,0,0,FALSE,TRUE,Presidential
+116,2019,Donald Trump,Republican,R,Republican,52,Democratic,46,2,0,FALSE,Democratic,235,Republican,199,1,0,TRUE,FALSE,Midterm
+117,2021,Joe Biden,Democratic,D,Democratic,48,Republican,50,2,0,TRUE,Democratic,221,Republican,213,0,1,FALSE,TRUE,Presidential

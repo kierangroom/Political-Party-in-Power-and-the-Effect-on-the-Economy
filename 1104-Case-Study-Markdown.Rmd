@@ -1,0 +1,173 @@
+---
+title: |
+    | Political Party in Power and the Effect on the Economy 
+    | A Case Study by
+    | Kieran Groom
+    | Fall 2022
+output: pdf_document
+---
+
+```{r, message = FALSE, echo=FALSE}
+library(tidyverse)
+#library(dasc2594)
+library(dplyr)
+library(caret)
+```
+
+# Abstract
+In the political discourse there is much debate as to which American Political Party improves the economy the most. This case study set out to see if there is a correlation between political party in power and how well the economy is doing. The difficulty with looking into this is that there are many ways to measure how much influence over the government a political party has and there are many different ways to measure how strong the economy is. As this is a preliminary look into this topic I took a fairly simplistic view of political control and strength of the economy. To measure political power I used control over the Chambers of Congress and who has control of the Presidency. To measure strength of the economy I used Inflation, Unemployment, and GDP (Gross Domestic Product) Growth.
+
+# Data
+## Datasets
+The data I am using for this dataset was collected from Kaggle. There are four datasets that I am using. The first dataset details control over the House of Representatives, the Senate, and the Presidency. The second dataset has inflation for each month by year. The third dataset shows GDP Growth by year, and the final dataset contains information about unemployment for each month by year. 
+
+## Data Engineering
+With these datasets I still needed to do a bit of data engineering as they weren't quite workable yet. For the inflation data I calculated the change in CPI for the year. For the GDP dataset I had to make sure that the data only had numbers so I had to remove the percent sign from the data. For the Unemployment Data I had to calculate the average unemployment for each year. Once I had cleaned up the data I had to merge them all into one dataset together.
+
+```{r, echo=FALSE, message=FALSE}
+dat1 <- read_csv(here::here("data", "CongressionalMakeup.csv"))
+
+dat2 <- read_csv(here::here("data", "inflation.csv"))
+aI <- (rowSums((dat2[14]-dat2[3]))/dat2[3])
+dat2 <- cbind(dat2, aI)
+testDataInflation <- select(dat2, 2, 15)
+
+dat3 <- read_csv(here::here("data", "USA-GDP-Growth-1961-2021.csv"))
+dat3$GDP <- sub("$","",as.character(dat3$GDP))
+dat3$'GDP per Capita' <- sub("$","",as.character(dat3$'GDP per Capita'))
+dat3$Growth <- gsub("%","",as.character(dat3$Growth))
+
+dat4 <- read_csv(here::here("data", "USUnemployment.csv"))
+annualUnemployment <- (rowSums(dat4[2:13])/12)
+dat4 <- cbind(dat4, annualUnemployment)
+testDataUnemployment <- select(dat4, 1, 14)
+
+dat5 <- merge(dat1, dat2, by = "Year")
+dat6 <- merge(dat3, dat4, by = "Year")
+datTotal <- merge(dat5, dat6, by = "Year")
+
+testData <- select(datTotal, 1, 5, 6, 13, 20)
+dummy <- dummyVars(" ~ .", data=testData)
+newdata <- data.frame(predict(dummy, newdata = testData))
+
+congresscontrolD <- (newdata$HouseMajorityPartyDemocratic * newdata$SenateMajorityPartyDemocratic)
+congresscontrolR <- (newdata$HouseMajorityPartyRepublican * newdata$SenateMajorityPartyRepublican)
+splitCongress <- (1 - (congresscontrolD + congresscontrolR))
+newdata <- cbind(newdata, congresscontrolD, congresscontrolR, splitCongress)
+
+#DDD <- (newdata$HouseMajorityPartyDemocratic * newdata$SenateMajorityPartyDemocratic * newdata$PresPartyAbbrevD)
+#DDR <- (newdata$HouseMajorityPartyDemocratic * newdata$SenateMajorityPartyDemocratic * newdata$PresPartyAbbrevR)
+#DRD <- (newdata$HouseMajorityPartyDemocratic * newdata$SenateMajorityPartyRepublican * newdata$PresPartyAbbrevD)
+#DRR <- (newdata$HouseMajorityPartyDemocratic * newdata$SenateMajorityPartyRepublican * newdata$PresPartyAbbrevR)
+#RDD <- (newdata$HouseMajorityPartyRepublican * newdata$SenateMajorityPartyDemocratic * newdata$PresPartyAbbrevD)
+#RDR <- (newdata$HouseMajorityPartyRepublican * newdata$SenateMajorityPartyDemocratic * newdata$PresPartyAbbrevR)
+#RRD <- (newdata$HouseMajorityPartyRepublican * newdata$SenateMajorityPartyRepublican * newdata$PresPartyAbbrevD)
+#RRR <- (newdata$HouseMajorityPartyRepublican * newdata$SenateMajorityPartyRepublican * newdata$PresPartyAbbrevR)
+#newdata <- cbind(newdata, DDD, DDR, DRD, DRR, RDD, RDR, RRD, RRR)
+
+inflationData <- merge(newdata, testDataInflation, by = "Year")
+UnemploymentData <- merge(newdata, testDataUnemployment, by = "Year")
+GDPData <- merge(newdata, dat3, by = "Year")
+```
+
+# Analysis
+
+To perform my analysis on the data I first needed a way to determine who had control over what part of the Government each year. For this I used One Hot Encoding. This is a technique where a vector of data is split into multiple vectors for each unique entry. So for the control of government it was split into two vectors for each party in both Chambers of Congress and for the Presidency. This allowed me to see how either party controlling any one part of the government affected the parts of the economy. This does not explain every way a party can control the government so I had to create a few other vectors that would help explain how the economy is affected. These would be a split congress and a trifecta (control of both Chambers of Congress and the Presidency). A split congress would mean that bills are less likely to be passed, and conversely a trifecta would mean that bills would be much easier to pass. Using these explanatory factors I did created a linear regression model for each measure of the economy split by Party.
+
+```{r, echo=FALSE}
+#modelInflation <- lm(inflationData$Jan ~ inflationData$DDD + inflationData$DDR + inflationData$DRD + inflationData$DRR + inflationData$RDD + inflationData$RDR + inflationData$RRD + inflationData$RRR)
+#modelInflation <- lm(inflationData$Jan ~ inflationData$SenateMajorityPartyDemocratic + inflationData$SenateMajorityPartyRepublican + inflationData$HouseMajorityPartyDemocratic + inflationData$HouseMajorityPartyRepublican + inflationData$congresscontrolD + inflationData$congresscontrolR + inflationData$splitCongress)
+```
+
+```{r}
+modelInflationD <- lm(inflationData$Jan ~ inflationData$SenateMajorityPartyDemocratic + inflationData$HouseMajorityPartyDemocratic + inflationData$splitCongress + inflationData$PresPartyAbbrevD + inflationData$TrifectaTRUE)
+summary(modelInflationD)
+```
+
+```{r}
+modelInflationR <- lm(inflationData$Jan ~ inflationData$SenateMajorityPartyRepublican + inflationData$HouseMajorityPartyRepublican + inflationData$splitCongress + inflationData$PresPartyAbbrevR + inflationData$TrifectaTRUE)
+summary(modelInflationR)
+```
+
+```{r, echo=FALSE}
+inflationdf <- data.frame(inflationData$SenateMajorityPartyDemocratic, inflationData$HouseMajorityPartyDemocratic, inflationData$splitCongress, inflationData$PresPartyAbbrevD, inflationData$TrifectaTRUE)
+predictedInflation <- data.frame(inflationData$Year)
+predictedInflation <- cbind(predictedInflation, inflationData$Jan)
+predictedInflation <- cbind(predictedInflation, predict(modelInflationD, newdata = inflationdf))
+ggplot(predictedInflation) + 
+  geom_line(aes(x = predictedInflation[,1], y =  predictedInflation[,2]), color = "Red") + 
+  geom_line(aes(x = predictedInflation[,1], y =  predictedInflation[,3]), color = "Blue") + 
+  ggtitle("Actual Inflation (Red) vs Predicted Inflation (Blue)") + 
+  xlab("Year") + 
+  ylab("Consumer Price Index")
+```
+
+```{r, echo=FALSE}
+#modelUnemployment <- lm(UnemploymentData$annualUnemployment ~ UnemploymentData$DDD + UnemploymentData$DDR + UnemploymentData$DRD + UnemploymentData$DRR + UnemploymentData$RDD + UnemploymentData$RDR + UnemploymentData$RRD + UnemploymentData$RRR)
+```
+
+```{r}
+modelUnemploymentD <- lm(UnemploymentData$annualUnemployment ~ UnemploymentData$SenateMajorityPartyDemocratic + UnemploymentData$HouseMajorityPartyDemocratic + UnemploymentData$splitCongress + UnemploymentData$PresPartyAbbrevD + UnemploymentData$TrifectaTRUE)
+summary(modelUnemploymentD)
+```
+
+```{r}
+modelUnemploymentR <- lm(UnemploymentData$annualUnemployment ~ UnemploymentData$SenateMajorityPartyRepublican + UnemploymentData$HouseMajorityPartyRepublican + UnemploymentData$splitCongress + UnemploymentData$PresPartyAbbrevR + UnemploymentData$TrifectaTRUE)
+summary(modelUnemploymentR)
+```
+
+```{r, echo=FALSE}
+unemploymentdf <- data.frame(UnemploymentData$SenateMajorityPartyDemocratic, UnemploymentData$HouseMajorityPartyDemocratic, UnemploymentData$splitCongress, UnemploymentData$PresPartyAbbrevD, UnemploymentData$TrifectaTRUE)
+predictedUnemployment <- data.frame(UnemploymentData$Year)
+predictedUnemployment <- cbind(predictedUnemployment, UnemploymentData$annualUnemployment)
+predictedUnemployment <- cbind(predictedUnemployment, predict(modelUnemploymentD, newdata = unemploymentdf))
+ggplot(predictedUnemployment) + 
+  geom_line(aes(x = predictedUnemployment[,1], y =  predictedUnemployment[,2]), color = "Red") + 
+  geom_line(aes(x = predictedUnemployment[,1], y =  predictedUnemployment[,3]), color = "Blue") + 
+  ggtitle("Actual Unemployment (Red) vs Predicted Unemployment (Blue)") + 
+  xlab("Year") + 
+  ylab("Rate of Unemployment")
+```
+
+```{r, echo=FALSE}
+#modelGDPGrowth <- lm(GDPData$Growth ~ GDPData$DDD + GDPData$DDR + GDPData$DRD + GDPData$DRR + GDPData$RDD + GDPData$RDR + GDPData$RRD + GDPData$RRR)
+```
+
+```{r}
+modelGDPGrowthD <- lm(GDPData$Growth ~ GDPData$SenateMajorityPartyDemocratic + GDPData$HouseMajorityPartyDemocratic + GDPData$splitCongress + GDPData$PresPartyAbbrevD + GDPData$TrifectaTRUE)
+summary(modelGDPGrowthD)
+```
+
+```{r}
+modelGDPGrowthR <- lm(GDPData$Growth ~ GDPData$SenateMajorityPartyRepublican + GDPData$HouseMajorityPartyRepublican + GDPData$splitCongress + GDPData$PresPartyAbbrevR + GDPData$TrifectaTRUE)
+summary(modelGDPGrowthR)
+```
+
+```{r, echo=FALSE}
+GDPGrowthdf <- data.frame(GDPData$SenateMajorityPartyDemocratic, GDPData$HouseMajorityPartyDemocratic, GDPData$splitCongress, GDPData$PresPartyAbbrevD, GDPData$TrifectaTRUE)
+predictedGDPGrowth <- data.frame(GDPData$Year)
+predictedGDPGrowth <- cbind(predictedGDPGrowth, sapply(GDPData$Growth,as.numeric))
+predictedGDPGrowth <- cbind(predictedGDPGrowth, predict(modelGDPGrowthD, newdata = GDPGrowthdf))
+ggplot(predictedGDPGrowth) + 
+  geom_line(aes(x = predictedGDPGrowth[,1], y =  predictedGDPGrowth[,2]), color = "Red") + 
+  geom_line(aes(x = predictedGDPGrowth[,1], y =  predictedGDPGrowth[,3]), color = "Blue") + 
+  ggtitle("Actual GDP Growth (Red) vs Predicted GDP Growth (Blue)") + 
+  xlab("Year") + 
+  ylab("% increase in GDP")
+```
+
+# Conclusion
+
+## Findings
+
+### Inflation
+When looking at how Democratic control over the government affects inflation we can see that a Democratic Congress tends to increase inflation, however a Democratic President tends to lessen inflation growth. Inversely Republican Congresses tend to lessen the growth of inflation while Republican presidents tend to increase it. If either party has a trifecta however it tends to decrease the rate of inflation. All of these findings however have a very low correlation and are not statistically significant as they have a p-value of greater than 0.05. Despite the lack of statistical significance when looking at the graph of actual vs predicted inflation it seems to match up somewhat.
+
+### Unemployment
+Starting with the Democratic Party's effect on unemployment it seems that in every case unemployment tends to increase. With Republican control of Congress or the Presidency Unemployment tends to decrease, however if there is a Republican trifecta unemployment is predicted to increase. Once again neither of these models have a high correlation and they both are not statistically significant because their p-values are also greater than 0.05. Again when looking at the graph of actual vs predicted unemployment it looks like there is a good amount of correlation between the two despite the lack of statistical significance.
+
+### GDP Growth
+The final measure looked at was GDP Growth. Democratic control of the House and Presidency correlated with greater GDP Growth where Democratic control of the Senate or a Democratic trifecta correlated with a lower GDP Growth. Republican control of the Senate also led to an increase in GDP Growth, however in every other case Republican control led to a decrease in GDP Growth. Once again as with the previous two models the correlation was low and the findings were not statistically significant. The graph of actual vs predicted GDP Growth has the largest variance. These large jumps tend to correlate with significant events happening so it seems that GDP Growth is far more suceptible to other factors.
+
+## Continuation
+These findings might seem like they are meaningless because they are not statistically significant, but they can form the basis for more in depth analysis. For example if instead of just looking at whether a Political Party controls a certain part of Government we could look at the margin of control that party has. This would be an interesting measure as a 60 person majority means significantly more than a 59 person majority as it is the number of Senators required to prevent filibusters. Furthermore we could look at more measures of the economy such as the performance of the stock market. Another interesting question that came to mind while doing this study is how much effect the strength of the economy has on who gets elected. Even though the findings of this study were not statistically significant, they are not useless.
